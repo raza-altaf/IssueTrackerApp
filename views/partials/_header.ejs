@@ -1,0 +1,14 @@
+<!-- Navigation bar using Bootstrap -->
+<nav class="navbar navbar-expand-sm bg-light">
+  <div class="container-fluid">
+    <!-- Brand/logo, with a margin on the left -->
+    <a class="navbar-brand ms-4" href="/"> Issue Tracker </a>
+
+    <!-- Conditionally include either '_issue_form' or '_project_form' based on the 'title' variable -->
+    <% if( title === "Project Page"){ %>
+    <!-- Include the '_issue_form' if the title is "Project Page" -->
+    <%- include('_issue_form'); %> <% } else { %>
+    <!-- Include the '_project_form' if the title is not "Project Page" -->
+    <%- include('_project_form'); %> <% } %>
+  </div>
+</nav>

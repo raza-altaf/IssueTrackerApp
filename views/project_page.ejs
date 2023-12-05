@@ -1,0 +1,19 @@
+<div class="w-50 border border-secondary border-1 p-3 m-auto">
+  <!-- Display project name with a background color -->
+  <h3 class="display-5 p-3 mb-2 bg-secondary text-white">
+    Project : <%= project.name %>
+  </h3>
+
+  <!-- Display project author with a different background color -->
+  <h4 class="display-6 p-3 mb-2 bg-light text-dark">
+    Author : <%= project.author %>
+  </h4>
+
+  <!-- Display project description with another background color -->
+  <h5 class="display-6 p-3 mb-2 bg-info text-dark">
+    Description : <%= project.description %>
+  </h5>
+</div>
+
+<!-- Include the partial for displaying issues related to the project -->
+<%-include('./partials/_issues'); %>

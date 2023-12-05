@@ -1,0 +1,102 @@
+<% if(project.issues.length >= 1) { %>
+
+<!-- Buttons for showing all issues, filtering, and searching -->
+<div class="w-50 my-5 d-flex justify-content-around mx-auto">
+  <div>
+    <!-- Button to show all issues -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      style="
+        --bs-btn-padding-y: 0.25rem;
+        --bs-btn-padding-x: 0.5rem;
+        --bs-btn-font-size: 1rem;
+      "
+      data-bs-toggle="modal"
+      data-bs-target="#allIssue"
+    >
+      Show All Issues
+    </button>
+
+    <!-- Modal for displaying all issues -->
+    <div
+      class="modal fade"
+      id="allIssue"
+      tabindex="-1"
+      aria-labelledby="allIssueLabel"
+      aria-hidden="true"
+    >
+      <!-- ... Modal content for displaying all issues ... -->
+    </div>
+  </div>
+
+  <div>
+    <!-- Button to filter issues -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      style="
+        --bs-btn-padding-y: 0.25rem;
+        --bs-btn-padding-x: 0.5rem;
+        --bs-btn-font-size: 1rem;
+      "
+      data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop"
+    >
+      Filter Issues
+    </button>
+
+    <!-- Modal for filtering issues -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <!-- ... Modal content for filtering issues ... -->
+    </div>
+  </div>
+
+  <div>
+    <!-- Button to search issues -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      style="
+        --bs-btn-padding-y: 0.25rem;
+        --bs-btn-padding-x: 0.5rem;
+        --bs-btn-font-size: 1rem;
+      "
+      data-bs-toggle="modal"
+      data-bs-target="#searchmodal"
+    >
+      Search Issues
+    </button>
+
+    <!-- Modal for searching issues -->
+    <div
+      class="modal fade"
+      id="searchmodal"
+      tabindex="-1"
+      aria-labelledby="searchmodalLabel"
+      aria-hidden="true"
+    >
+      <!-- ... Modal content for searching issues ... -->
+    </div>
+  </div>
+</div>
+
+<!-- Placeholder for displaying filtered/sorted issues -->
+<div class="w-50 mb-5 mx-auto">
+  <div class="card w-100 mb-5" style="width: 18rem" id="issues-list"></div>
+</div>
+
+<!-- Data attribute to store JSON representation of issues -->
+<div id="issue-data" data="<%=JSON.stringify(project.issues)%>"></div>
+
+<!-- Script files for filtering and searching issues -->
+<script src="/js/filterIssues.js"></script>
+<script src="/js/searchIssues.js"></script>
+
+<% } %>

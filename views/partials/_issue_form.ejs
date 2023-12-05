@@ -1,0 +1,141 @@
+<!-- Button trigger modal for creating an issue -->
+<div class="text-end">
+  <button
+    type="button"
+    class="btn m-auto btn-danger"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+  >
+    Create Issue
+  </button>
+</div>
+
+<!-- Modal for creating an issue -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create an Issue</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <!-- Issue creation form -->
+      <form
+        class="border border-light border-3"
+        action="/project/<%=project._id%>"
+        method="POST"
+      >
+        <!-- Title input field -->
+        <div class="row mb-3 m-auto">
+          <label for="titlelabel" class="col-sm-4 col-form-label">Title</label>
+          <div class="col-sm-8">
+            <input
+              type="text"
+              name="title"
+              placeholder="Title"
+              required
+              class="form-control"
+              id="titlelabel"
+            />
+          </div>
+        </div>
+
+        <!-- Description textarea -->
+        <div class="row mb-3 m-auto">
+          <label for="descriptionlabel" class="col-sm-4 col-form-label"
+            >Description</label
+          >
+          <div class="col-sm-8">
+            <textarea
+              name="description"
+              placeholder="Describe your issue..."
+              required
+              class="form-control"
+              id="descriptionlabel"
+              style="height: 100px"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Dropdown for labels -->
+        <% if (project.labels.length>0) { %>
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Labels
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <!-- Iterate over project labels and create dropdown items -->
+            <% for( let label of project.labels) { %>
+            <li><a class="dropdown-item" href="#"><%= label %></a></li>
+            <% } %>
+          </ul>
+        </div>
+        <% } %>
+
+        <!-- Checkbox inputs for adding labels -->
+        <div class="row mb-3 m-auto">
+          <label for="labels" class="col-sm-4 col-form-label">Add Labels</label>
+          <div class="col-sm-8">
+            <!-- Checkbox inputs for various labels -->
+            <!-- You may want to adjust this section based on your label options -->
+            <input
+              class="form-check-input"
+              name="labels"
+              type="checkbox"
+              value="Bug"
+              id="bug"
+            />
+            <label class="form-check-label" for="bug"> Bug </label><br />
+            <!-- Add similar lines for other labels -->
+          </div>
+        </div>
+
+        <!-- Author input field -->
+        <div class="row mb-3 m-auto">
+          <label for="authorlabel" class="col-sm-4 col-form-label"
+            >Author</label
+          >
+          <div class="col-sm-8">
+            <input
+              type="text"
+              name="author"
+              placeholder="Author"
+              required
+              class="form-control"
+              id="authorlabel"
+            />
+          </div>
+        </div>
+
+        <!-- Modal footer with close and submit buttons -->
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary">Create Issue</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

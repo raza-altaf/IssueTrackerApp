@@ -1,0 +1,31 @@
+<div class="mb-5 p-5">
+  <!-- Loop through each project in the "projects" array -->
+  <% for( let project of projects ) { %>
+  <div class="card mb-2 w-50 m-auto">
+    <!-- Card Header with Project Name -->
+    <div class="card-header">
+      <strong> Name of the project : </strong><%= project.name %>
+    </div>
+
+    <!-- Card Body with Project Details -->
+    <div class="card-body">
+      <!-- Author Information -->
+      <h6 class="card-subtitle mb-2 text-muted">
+        <strong> Author : </strong> <%= project.author %>
+      </h6>
+
+      <!-- Project Description -->
+      <p class="card-text">
+        <strong> Description : </strong><%= project.description %>
+      </p>
+
+      <!-- Button to Open the Project -->
+      <div class="m-auto text-end">
+        <a href="/project/<%=project._id%>" class="btn btn-primary m-auto">
+          Open project
+        </a>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</div>
