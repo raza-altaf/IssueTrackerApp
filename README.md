@@ -91,6 +91,6 @@ The Issue Tracker Web App is a web-based platform designed to help manage projec
 5. **Filtering and Searching:**
    - Use the provided buttons to show all issues, filter by criteria, or search for specific issues.
 
-## Contributing
+## Contribution
 
-Contributions are welcome! If you have ideas for improvements, feature requests, or bug reports, please open an issue or submit a pull request.
+Contributions are welcome! If you find a bug or have an idea for an improvement, feel free to open an issue or submit a pull request.
